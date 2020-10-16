@@ -5,9 +5,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-        <main className="App-main">
-            <CameraController />
-        </main>
+        <CameraController />
     </div>
   );
 }

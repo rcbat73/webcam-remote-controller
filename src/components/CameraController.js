@@ -6,15 +6,15 @@ import CameraOptions from './CameraOptions';
 import useRequestCameras from '../hooks/useRequestCameras';
 
 const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     height: 100%;
     width: 100%;
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    @media (max-width: 500px) {
+    @media (max-width: 670px) {
         flex-direction: column;
+        justify-content: flex-start;
         align-items: center;
-        justify-content: space-between;
     }
 `;
 

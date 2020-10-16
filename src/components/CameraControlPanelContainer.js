@@ -11,6 +11,10 @@ const CameraControlPanel = styled.div`
     font-size: 0.8em;
 `;
 
+const HelpText = styled.p`
+    color: white;
+`;
+
 const CameraControlCircle = styled.div`
     height: ${(props) => props.height}px;
     width: ${(props) => props.width}px;
@@ -46,10 +50,10 @@ const CameraControlPanelContainer = () => {
 
     return (
         <CameraControlPanel>
-            <p>Click in the circle and drag</p>
+            <HelpText>Click in the circle and drag</HelpText>
             <CameraControlCircle
-                height="250"
-                width="250"
+                height="200"
+                width="200"
                 onMouseDown={setReferenceHandler}
                 onMouseUp={clearReferenceHandler}
                 ref={panelRef}

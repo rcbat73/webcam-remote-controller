@@ -3,12 +3,10 @@ import styled from 'styled-components';
 import CameraControllerContext from '../context';
 
 const CamerasListContainer = styled.ul`
-    height: 100%;
-    width: 100%;
     list-style: none;
     padding: 0;
+    width: 80%;
     margin: 20px;
-    text-align: left;
 `;
 
 const CamerasListItem = styled.li`

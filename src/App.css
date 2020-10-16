@@ -1,12 +1,7 @@
 .App {
-  text-align: center;
-}
-
-.App-main {
-    min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    align-items: center;
+    width: 100%;
+    margin: 20px;
 }

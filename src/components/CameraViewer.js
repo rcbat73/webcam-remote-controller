@@ -18,13 +18,12 @@ const CameraViewer = () => {
     }, [camerasList, cameraPosition, webCam]);
 
     const style = {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        border: '3px solid #65a5db',
+        borderRadius: '3px',
     };
 
     return (
-        <div ref={cameraViewPanelRef} style={style}/>
+        <div ref={cameraViewPanelRef} style={style} />
     );
 
 };

@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import CameraControlPanelContainer from './CameraControlPanelContainer';
 import CamerasList from './CamerasList';
 
 const CameraOptionsContainer = styled.div`
-    height: ${(props) => props.height}px;
-    width: ${(props) => props.width}px;
     display: flex;
-    flex-direction: column;
+    justify-content: start;
     align-items: center;
-    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
     font-size: 1em;
     @media (max-width: 500px) {
         height: 100%;
         width: 100%;
-        margin: 40px;
     }
 `;
 
@@ -26,54 +24,27 @@ const Button = styled.button`
     border-radius: 5px 5px 0 0;
     background-color: ${(props) => props.backgroundColor};
     color: white;
-    font-size: 0.7em;
+    font-size: 1em;
     :focus {
         outline: 0;
     }
 `;
 
 const ButtonsContainer = styled.div`
-    height: 20%;
-    width: 100%;
     display: flex;
-    align-items: start;
     justify-content: center;
-    @media (max-width: 500px) {
-        height: 80px;
-        width: 180px;
-        border-radius: 15px 15px 0 0;
-    }
-`;
-
-const OptionsContainer = styled.div`
-    height: 100%;
-    width: 100%;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    @media (max-width: 500px) {
-        width: 50%;
+    @media (max-width: 670px) {
+        margin-top: 20px;
     }
 `;
 
 const CameraOptions = () => {
     const [option, setOption] = useState('cameras');
-    const [dimensions, setDimensions] = useState({ height: '100%', width: '100%' });
-    const cameraViewPanel = window.WebCam.getCameraNode();
-
-    useEffect(() => {
-        if(cameraViewPanel){
-            setDimensions({
-                height: parseInt(cameraViewPanel.style.height),
-                width: parseInt(cameraViewPanel.style.width),
-            });
-        }
-    }, [cameraViewPanel]);
-
     const setTabColor = (selectedOption) => option === selectedOption ? '#206299' : '#4682B4';
 
     return (
-        <CameraOptionsContainer height={dimensions.height} width={dimensions.width}>
+        <CameraOptionsContainer>
             <ButtonsContainer>
                 <Button
                     onClick={() => setOption('cameras')}
@@ -88,11 +59,9 @@ const CameraOptions = () => {
                     Control
                 </Button>
             </ButtonsContainer>
-            <OptionsContainer>
-                {
-                    option === 'cameras' ? <CamerasList /> : <CameraControlPanelContainer />
-                }
-            </OptionsContainer>
+            {
+                option === 'cameras' ? <CamerasList /> : <CameraControlPanelContainer />
+            }
         </CameraOptionsContainer>
     );
 };

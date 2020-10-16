@@ -7,6 +7,10 @@ const useWebCamViewer = (cameraViewPanel) => {
         if(cameraViewPanel){
             const node = WebCam.getCameraNode();
             cameraViewPanel.appendChild(node);
+            const imgContainer = cameraViewPanel.children[0];
+            imgContainer.style = {};
+            imgContainer.classList.add('camera-viewer');
+
             return () => {
                 cameraViewPanel.removeChild(node);
             }
